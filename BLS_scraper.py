@@ -49,7 +49,7 @@ class BLSScraper(BaseConnection):
                 value = item['value']
                 footnotes = ",".join(footnote['text'] for footnote in item['footnotes'] if footnote)
 
-                # Creation of a dictionary with the common data labels
+                # Creation of a dictionary with the common BLS series data labels
                 row_data = {
                     'seriesID': series_id,
                     'year': year,
