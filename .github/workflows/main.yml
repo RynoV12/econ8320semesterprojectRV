@@ -1,0 +1,4 @@
+name: BLS Scraper Schedule
+on:
+  schedule:
+  - cron: "30 13 1 * *" #Workflow will run on each month on the first day at 13:30 UTC (8:30 EST)
