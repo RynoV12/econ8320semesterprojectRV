@@ -1,4 +1,31 @@
 name: BLS Scraper Schedule
+
 on:
   schedule:
-  - cron: "30 13 1 * *" #Workflow will run on each month on the first day at 13:30 UTC (8:30 EST)
+  - cron: "30 13 1 * *" #Workflow will run on the first day of each month at 13:30 UTC (8:30 EST)
+
+jobs:
+  run-bls-scraper-scripts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run BLS_scraper.py
+        run: |
+          python BLS_scraper.py
+
+      - name: Run BLS_scraper_implementation.py
+        run: |
+          python BLS_scraper_implementation.py
