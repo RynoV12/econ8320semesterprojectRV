@@ -32,7 +32,7 @@ class BLSScraper(BaseConnection):
 
         # API request made using the post method with the payload
         try:
-            p = requests.get('https://api.bls.gov/publicAPI/v2/timeseries/data/', json=payload, headers=headers)
+            p = requests.post('https://api.bls.gov/publicAPI/v2/timeseries/data/', json=payload, headers=headers)
             if p.status_code == 200: # Checking for a successful response code
                 if p.text_strip(): # Making sure the response isn't empty before parsing
                     try:
