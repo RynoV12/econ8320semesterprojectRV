@@ -45,7 +45,7 @@ class BLSScraper(BaseConnection):
             else:
                 print(f"Request failed with status code: {p.status_code}")
         except requests.RequestException as e:
-            print (f"An error occurred while making the get request: {e}")
+            print (f"An error occurred while making the POST request: {e}")
 
         # Iterate over the JSON response and extract data from each inputted series
         for series in json_data['Results']['series']:
