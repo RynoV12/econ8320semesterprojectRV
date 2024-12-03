@@ -6,7 +6,7 @@ bls_conn = st.connection('bls', type=BLSScraper)
 
 # Input parameters
 series_ids_list = ['LNS12000000', 'LNS13000000', 'LNS14000000', 'CES0000000001']
-start_year_str = '2019'
+start_year_str = '2022'
 end_year_str = '2024'
 
 # Collect data using the established connection
