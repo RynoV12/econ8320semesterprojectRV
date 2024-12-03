@@ -32,7 +32,7 @@ class BLSScraper(BaseConnection):
 
         # API request made using the get method with the payload
         try:
-            p = requests.get('https://api.bls.gov/publicAPI/v2/timeseries/data/', json=payload, headers=headers)
+            p = requests.post('https://api.bls.gov/publicAPI/v2/timeseries/data/', json=payload, headers=headers)
             if p.status_code == 200: # Checking for a successful response code
                 if p.text_strip(): # Making sure the response isn't empty before parsing
                     try:
@@ -45,7 +45,7 @@ class BLSScraper(BaseConnection):
             else:
                 print(f"Request failed with status code: {p.status_code}")
         except requests.RequestException as e:
-            print (f"An error occurred while making the get request: {e}")
+            print (f"An error occurred while making the POST request: {e}")
 
         # Iterate over the JSON response and extract data from each inputted series
         for series in json_data['Results']['series']:
