@@ -30,7 +30,7 @@ class BLSScraper(BaseConnection):
         # Updated payload with additional parameters via **kwargs
         payload.update(kwargs)
 
-        # API request made using the get method with the payload
+        # API request made using the POST method with the payload
         try:
             p = requests.post('https://api.bls.gov/publicAPI/v2/timeseries/data/', json=payload, headers=headers)
             if p.status_code == 200: # Checking for a successful response code
