@@ -21,10 +21,10 @@ class BLSScraper(BaseConnection):
 
         # Payload of required parameters
         payload = {
-            "series": series_ids,
-            "start_year": start_year,
-            "end_year": end_year,
-            "api_key": api_key,
+            "series": seriesids,
+            "startyear": start_year,
+            "endyear": end_year,
+            "registrationkey": api_key,
         }
 
         # Updated payload with additional parameters via **kwargs
@@ -80,7 +80,7 @@ class BLSScraper(BaseConnection):
                 parsed_data.append(row_data)
 
             # Creation of a dataframe for the current series
-            columns = ['Series ID', 'Year', 'Period', 'Value', 'Catalog', 'Calculations', 'Annual Average', 'Aspects', 'Footnotes']
+            columns = ['seriesID', 'series_title', 'year', 'period', 'value', 'catalog', 'calculations', 'annual average', 'aspects', 'footnotes']
             data = [[entry.get(i, None) for i in columns] for entry in parsed_data]
             df = pd.DataFrame(data, columns=columns)
 
@@ -91,7 +91,7 @@ class BLSScraper(BaseConnection):
             df['%_change_value'] = df['value'].pct_change()
 
             # Reordering of the dataframe's columns
-            df = df[['date', 'value', '%_change_value', 'seriesID', 'series_title', 'year', 'month', 'period', 'survey_name', 'catalog', 'calculations', 'annualaverage', 'aspects', 'footnotes']]
+            df = df[['date', 'value', '%_change_value', 'series_ID', 'series_title', 'year', 'month', 'period', 'survey_name', 'catalog', 'calculations', 'annualaverage', 'aspects', 'footnotes']]
 
             # Resetting the index to start from 0
             df.reset_index(drop=True, inplace=True)
