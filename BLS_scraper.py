@@ -13,7 +13,7 @@ class BLSScraper(BaseConnection):
         pass
 
     # Collection of BLS data and returning a dictionary of dataframes
-    def collectblsdata(self, series_ids, start_year, end_year, api_key=None, **kwargs):
+    def collectblsdata(self, seriesids, start_year, end_year, api_key=None, **kwargs):
         dataframes_dict = {}
         headers = {
             'Content type': 'application/json',
@@ -112,12 +112,12 @@ class BLSScraper(BaseConnection):
 
     # Collection of data from the BLS API
     # The api_key argument is set to none as BLS V1 series do not require an API key
-    def query(cls, series_ids, start_year, end_year, api_key=None, **kwargs):
+    def query(cls, seriesids, start_year, end_year, api_key=None, **kwargs):
         try:
             connection = cls("bls_connection")
 
             dataframes_dict = connection.collectblsdata(
-                series_ids=series_ids,
+                seriesids=seriesids,
                 start_year=start_year,
                 end_year=end_year,
                 api_key=api_key, # Pass the API key or set it to None
