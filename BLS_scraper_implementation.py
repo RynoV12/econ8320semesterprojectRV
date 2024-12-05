@@ -25,6 +25,12 @@ nonfarm_emp_df = dataframes_dict['CES0000000001']
 st.title('ECON 8320 Fall 2024 Semester Project - Ryan Vilter')
 st.header('U.S. Bureau of Labor Statistics')
 
+# Display dataframes in my Streamlit dashboard
+st.dataframe(civ_emp_df)
+st.dataframe(civ_unemp_df)
+st.dataframe(unemp_rt_df)
+st.dataframe(nonfarm_emp_df)
+
 # Plot dataframes as bar charts in my Streamlit dashboard
 st.bar_chart(civ_emp_df,
              x='month',
