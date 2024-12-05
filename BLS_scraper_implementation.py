@@ -6,15 +6,14 @@ bls_conn = st.connection('bls', type=BLSScraper)
 
 # Input parameters
 series_ids_list = ['LNS12000000', 'LNS13000000', 'LNS14000000', 'CES0000000001']
-start_year_str = '2022'
+start_year_str = '2021'
 end_year_str = '2024'
-api_key = '41a750172edc404d95437f827b482b31'
 
 # Collect data using the established connection
 dataframes_dict = bls_conn.query(series_ids_list,
                                    start_year_str,
                                    end_year_str,
-                                   api_key)
+                                   api_key=None)
 
 # Create dataframes
 civ_emp_df = dataframes_dict['LNS12000000']
