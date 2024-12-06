@@ -16,7 +16,7 @@ class BLSScraper(BaseConnection):
     def collectblsdata(self, seriesids, start_year, end_year, api_key=None, **kwargs):
         dataframes_dict = {}
         headers = {
-            'Content type': 'application/json',
+            'Content-type': 'application/json',
         }
 
         # Payload of required parameters
