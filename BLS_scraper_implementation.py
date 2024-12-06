@@ -36,19 +36,19 @@ st.bar_chart(civ_emp_df,
              x='month',
              y='year',
              x_label='Civilian Employment per Month',
-             y_label='Civilian Employment per Year (2019-2024)')
+             y_label='Civilian Employment per Year (2021-2024)')
 st.bar_chart(civ_unemp_df,
              x='month',
              y='year',
              x_label='Civilian Unemployment per Month',
-             y_label='Civilian Unemployment per Year (2019-2024)')
+             y_label='Civilian Unemployment per Year (2021-2024)')
 st.bar_chart(unemp_rt_df,
              x='month',
              y='year',
              x_label='Unemployment Rate per Month',
-             y_label='Unemployment Rate per Year (2019-2024)')
+             y_label='Unemployment Rate per Year (2021-2024)')
 st.bar_chart(nonfarm_emp_df,
              x='month',
              y='year',
              x_label='Nonfarm Worker Employment per Month',
-             y_label='Nonfarm Worker Employment per Year (2019-2024)')
+             y_label='Nonfarm Worker Employment per Year (2021-2024)')
