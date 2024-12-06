@@ -6,7 +6,7 @@ bls_conn = st.connection('bls', type=BLSScraper)
 
 # Input parameters
 series_ids_list = ['LNS12000000', 'LNS13000000', 'LNS14000000', 'CES0000000001']
-start_year_str = '2021'
+start_year_str = '2023'
 end_year_str = '2024'
 
 # Collect data using the established connection
@@ -36,19 +36,19 @@ st.bar_chart(civ_emp_df,
              x='month',
              y='year',
              x_label='Civilian Employment per Month',
-             y_label='Civilian Employment per Year (2021-2024)')
+             y_label='Civilian Employment per Year (2023-2024)')
 st.bar_chart(civ_unemp_df,
              x='month',
              y='year',
              x_label='Civilian Unemployment per Month',
-             y_label='Civilian Unemployment per Year (2021-2024)')
+             y_label='Civilian Unemployment per Year (2023-2024)')
 st.bar_chart(unemp_rt_df,
              x='month',
              y='year',
              x_label='Unemployment Rate per Month',
-             y_label='Unemployment Rate per Year (2021-2024)')
+             y_label='Unemployment Rate per Year (2023-2024)')
 st.bar_chart(nonfarm_emp_df,
              x='month',
              y='year',
              x_label='Nonfarm Worker Employment per Month',
-             y_label='Nonfarm Worker Employment per Year (2021-2024)')
+             y_label='Nonfarm Worker Employment per Year (2023-2024)')
