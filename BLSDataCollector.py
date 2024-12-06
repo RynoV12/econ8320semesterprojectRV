@@ -67,32 +67,50 @@ nonfarm_emp_df = dataframes_dict['CES0000000001']
 
 # Addition of title and header in Streamlit
 st.title('ECON 8320 Fall 2024 Semester Project - Ryan Vilter')
-st.header('U.S. Bureau of Labor Statistics')
+st.header('_:red[U.S.] Bureau of Labor Statistics :blue[Data]_ :flag_us:')
 
-# Add data frames to my Streamlit dashboard
+# Add data frames and labels to my Streamlit dashboard
+st.subheader("Civilian Employment Data Frame", divider = "blue")
 st.dataframe(civ_emp_df)
+
+st.subheader("Civilian Unemployment Data Frame", divider = "blue")
 st.dataframe(civ_unemp_df)
+
+st.subheader("Unemployment Rate Data Frame", divider = "blue")
 st.dataframe(unemp_rt_df)
+
+st.subheader("Nonfarm Employment Data Frame", divider = "blue")
 st.dataframe(nonfarm_emp_df)
 
-# Plot dataframes as bar charts in my Streamlit dashboard
-st.bar_chart(civ_emp_df,
-             x='month',
-             y='year',
-             x_label='Civilian Employment per Month',
-             y_label='Civilian Employment per Year (2023-2024)')
-st.bar_chart(civ_unemp_df,
-             x='month',
-             y='year',
-             x_label='Civilian Unemployment per Month',
-             y_label='Civilian Unemployment per Year (2023-2024)')
-st.bar_chart(unemp_rt_df,
-             x='month',
-             y='year',
-             x_label='Unemployment Rate per Month',
-             y_label='Unemployment Rate per Year (2023-2024)')
-st.bar_chart(nonfarm_emp_df,
-             x='month',
-             y='year',
-             x_label='Nonfarm Worker Employment per Month',
-             y_label='Nonfarm Worker Employment per Year (2023-2024)')
+# Plot dataframes as bar charts and label them in my Streamlit dashboard
+st.subheader("Civilian Employment Line Chart", divider = "red")
+st.line_chart(civ_emp_df,
+             x=['month', 'year']
+             y='value',
+             x_label='Civilian Employment per Month and Year',
+             y_label='Number of Employed Civilians',
+            color = 'year')
+
+st.subheader("Civilian Unemployment Line Chart", divider = "red")
+st.line_chart(civ_unemp_df,
+             x=['month', 'year']
+             y='value',
+             x_label='Civilian Unemployment per Month and Year',
+             y_label='Number of Unemployed Civilians',
+            color = 'year')
+
+st.subheader("Unemployment Rate Line Chart", divider = "red")
+st.line_chart(unemp_rt_df,
+             x=['month', 'year'],
+             y='value',
+             x_label='Unemployment Rate per Month and Year',
+             y_label='Unemployment Rate',
+             color = 'year')
+
+st.subheader("Nonfarm Employment Line Chart", divider = "red")
+st.line_chart(nonfarm_emp_df,
+             x=['month', 'year'],
+             y='value',
+             x_label='Nonfarm Worker Employment per Month and Year',
+             y_label='Number of Nonfarm Workers',
+             color = 'year')
