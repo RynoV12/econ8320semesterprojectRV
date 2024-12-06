@@ -20,12 +20,12 @@ class BLSScraper(BaseConnection):
         }
 
         # Payload of required parameters
-        payload = {
-            "series": seriesids,
+        payload = json.dumps({
+            "seriesid": seriesids,
             "startyear": start_year,
             "endyear": end_year,
-            "registrationkey": api_key,
-        }
+            "registrationkey": "your_key",
+        })
 
         # Updated payload with additional parameters via **kwargs
         payload.update(kwargs)
