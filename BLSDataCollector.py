@@ -85,32 +85,28 @@ st.dataframe(nonfarm_emp_df)
 # Plot dataframes as bar charts and label them in my Streamlit dashboard
 st.subheader("Civilian Employment Line Chart", divider = "red")
 st.line_chart(civ_emp_df,
-             x=['month', 'year'],
+             x='month',
              y='value',
-             x_label='Civilian Employment per Month and Year',
-             y_label='Number of Employed Civilians',
-            color = 'year')
+             x_label='Civilian Employment per Month',
+             y_label='Number of Employed Civilians')
 
 st.subheader("Civilian Unemployment Line Chart", divider = "red")
 st.line_chart(civ_unemp_df,
-             x=['month', 'year'],
+             x='month',
              y='value',
-             x_label='Civilian Unemployment per Month and Year',
-             y_label='Number of Unemployed Civilians',
-            color = 'year')
+             x_label='Civilian Unemployment per Month',
+             y_label='Number of Unemployed Civilians')
 
 st.subheader("Unemployment Rate Line Chart", divider = "red")
 st.line_chart(unemp_rt_df,
-             x=['month', 'year'],
+             x='month',
              y='value',
-             x_label='Unemployment Rate per Month and Year',
-             y_label='Unemployment Rate',
-             color = 'year')
+             x_label='Unemployment Rate per Month',
+             y_label='Unemployment Rate')
 
 st.subheader("Nonfarm Employment Line Chart", divider = "red")
 st.line_chart(nonfarm_emp_df,
-             x=['month', 'year'],
+             x='month',
              y='value',
-             x_label='Nonfarm Worker Employment per Month and Year',
-             y_label='Number of Nonfarm Workers',
-             color = 'year')
+             x_label='Nonfarm Worker Employment per Month',
+             y_label='Number of Nonfarm Workers')
