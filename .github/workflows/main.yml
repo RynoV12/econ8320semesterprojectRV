@@ -26,10 +26,6 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run BLS_scraper.py
+      - name: Run BLSDataCollector.py
         run: |
-          python BLS_scraper.py
-
-      - name: Run BLS_scraper_implementation.py
-        run: |
-          python BLS_scraper_implementation.py
+          python BLSDataCollector.py
