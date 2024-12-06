@@ -85,7 +85,7 @@ st.dataframe(nonfarm_emp_df)
 # Plot dataframes as bar charts and label them in my Streamlit dashboard
 st.subheader("Civilian Employment Line Chart", divider = "red")
 st.line_chart(civ_emp_df,
-             x=['month', 'year']
+             x=['month', 'year'],
              y='value',
              x_label='Civilian Employment per Month and Year',
              y_label='Number of Employed Civilians',
@@ -93,7 +93,7 @@ st.line_chart(civ_emp_df,
 
 st.subheader("Civilian Unemployment Line Chart", divider = "red")
 st.line_chart(civ_unemp_df,
-             x=['month', 'year']
+             x=['month', 'year'],
              y='value',
              x_label='Civilian Unemployment per Month and Year',
              y_label='Number of Unemployed Civilians',
