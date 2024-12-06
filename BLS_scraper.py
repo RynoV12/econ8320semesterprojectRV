@@ -27,9 +27,6 @@ class BLSScraper(BaseConnection):
             "registrationkey": "your_key",
         })
 
-        # Updated payload with additional parameters via **kwargs
-        payload.update(kwargs)
-
         # API request made using the POST method with the payload
         p = requests.post('https://api.bls.gov/publicAPI/v2/timeseries/data/', data=payload, headers=headers)
         json_data = json.loads(p.text)
