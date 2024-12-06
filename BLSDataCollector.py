@@ -67,7 +67,7 @@ nonfarm_emp_df = dataframes_dict['CES0000000001']
 
 # Addition of title and header in Streamlit
 st.title('ECON 8320 Fall 2024 Semester Project - Ryan Vilter')
-st.header('_:red[U.S.] Bureau of Labor Statistics :blue[Data]_ :flag_us:')
+st.header('_:red[U.S.] Bureau of Labor Statistics :blue[Data]_ :flag-us:')
 
 # Add data frames and labels to my Streamlit dashboard
 st.subheader("Civilian Employment Data Frame", divider = "blue")
