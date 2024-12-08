@@ -98,8 +98,8 @@ st.line_chart(civ_emp_df,
              x='month',
              y='value',
              x_label='Civilian Employment per Month',
-             y_label='Number of Employed Civilians'
-             year='color')
+             y_label='Number of Employed Civilians',
+             color='year')
 
 st.subheader("Civilian Unemployment Line Chart", divider = "red")
 st.line_chart(civ_unemp_df,
