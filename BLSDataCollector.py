@@ -98,25 +98,29 @@ st.line_chart(civ_emp_df,
              x='month',
              y='value',
              x_label='Civilian Employment per Month',
-             y_label='Number of Employed Civilians')
+             y_label='Number of Employed Civilians'
+             year='color')
 
 st.subheader("Civilian Unemployment Line Chart", divider = "red")
 st.line_chart(civ_unemp_df,
              x='month',
              y='value',
              x_label='Civilian Unemployment per Month',
-             y_label='Number of Unemployed Civilians')
+             y_label='Number of Unemployed Civilians',
+             color='year')
 
 st.subheader("Unemployment Rate Line Chart", divider = "red")
 st.line_chart(unemp_rt_df,
              x='month',
              y='value',
              x_label='Unemployment Rate per Month',
-             y_label='Unemployment Rate')
+             y_label='Unemployment Rate',
+            color='year')
 
 st.subheader("Nonfarm Employment Line Chart", divider = "red")
 st.line_chart(nonfarm_emp_df,
              x='month',
              y='value',
              x_label='Nonfarm Worker Employment per Month',
-             y_label='Number of Nonfarm Workers')
+             y_label='Number of Nonfarm Workers',
+             color='year')
