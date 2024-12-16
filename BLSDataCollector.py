@@ -14,7 +14,7 @@ def collect_bls_data():
     return json_data
 
 # Iterate over the JSON response and extract data from each inputted series
-@st.cache_data(ttl = "1d") # Caches dataframes_dict for 24 hours
+@st.cache_data(ttl = "1d") # Caches dataframes_dict data for 24 hours
 def process_bls_data(json_data):
     dataframes_dict = {}
     for series in json_data['Results']['series']:
@@ -73,7 +73,7 @@ def process_bls_data(json_data):
 json_data = collect_bls_data()
 dataframes_dict = process_bls_data(json_data)
 
-# Create dataframes for each series
+# Label the data frames corresponding to each series
 civ_emp_df = dataframes_dict['LNS12000000']
 civ_unemp_df = dataframes_dict['LNS13000000']
 unemp_rt_df = dataframes_dict['LNS14000000']
@@ -81,19 +81,19 @@ nonfarm_emp_df = dataframes_dict['CES0000000001']
 
 # Addition of title and header in Streamlit
 st.title('ECON 8320 Fall 2024 Semester Project - Ryan Vilter')
-st.header(':flag-us: _:red[U.S.] Bureau of Labor Statistics :blue[Data]_ :flag-us:', divider = "red")
+st.header(':flag-us: _:red[U.S.] Bureau of Labor Statistics :blue[Data]_ :flag-us:')
 
 # Add data frames and labels to the Streamlit dashboard
-st.subheader("Civilian Employment Data, 2022-2024", divider = "grey")
+st.subheader("Civilian Employment Data (Numbers in Thousands), 2022-2024", divider = "red")
 st.dataframe(civ_emp_df)
 
-st.subheader("Civilian Unemployment Data, 2022-2024", divider = "grey")
+st.subheader("Civilian Unemployment Data (Numbers in Thousands), 2022-2024", divider = "red")
 st.dataframe(civ_unemp_df)
 
-st.subheader("Unemployment Rate Data, 2022-2024", divider = "grey")
+st.subheader("Unemployment Rate Data (Numbers in Thousands), 2022-2024", divider = "red")
 st.dataframe(unemp_rt_df)
 
-st.subheader("Nonfarm Employment Data, 2022-2024", divider = "grey")
+st.subheader("Nonfarm Employment Data (Numbers in Thousands), 2022-2024", divider = "red")
 st.dataframe(nonfarm_emp_df)
 
 # Plot dataframes as line charts and label them in the Streamlit dashboard
@@ -101,23 +101,23 @@ st.subheader("Civilian Employment, 2022-2024", divider = "blue")
 st.line_chart(civ_emp_df,
              x='month',
              y='value',
-             x_label='Civilian Employment per Month',
-             y_label='Number of Employed Civilians',
+             x_label='Month',
+             y_label='Number of Employed Civilians (in Thousands)',
              color='year')
 
 st.subheader("Civilian Unemployment, 2022-2024", divider = "blue")
 st.line_chart(civ_unemp_df,
              x='month',
              y='value',
-             x_label='Civilian Unemployment per Month',
-             y_label='Number of Unemployed Civilians',
+             x_label='Month',
+             y_label='Number of Unemployed Civilians (in Thousands)',
              color='year')
 
 st.subheader("Unemployment Rate, 2022-2024", divider = "blue")
 st.line_chart(unemp_rt_df,
              x='month',
              y='value',
-             x_label='Unemployment Rate per Month',
+             x_label='Month',
              y_label='Unemployment Rate',
              color='year')
 
@@ -125,6 +125,6 @@ st.subheader("Nonfarm Employment, 2022-2024", divider = "blue")
 st.line_chart(nonfarm_emp_df,
              x='month',
              y='value',
-             x_label='Nonfarm Worker Employment per Month',
-             y_label='Number of Nonfarm Workers',
+             x_label='Month',
+             y_label='Number of Nonfarm Workers (in Thousands)',
              color='year')
