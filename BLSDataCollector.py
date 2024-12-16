@@ -5,7 +5,7 @@ import requests
 import json
 
 # Retrieval of series data
-@st.cache_data(ttl = "1d") # Caches the data for 24 hours
+@st.cache_data(ttl = "1d") # Caches json_data for 24 hours
 def collect_bls_data():
     headers = {'Content-type': 'application/json'}
     data = json.dumps({"seriesid": ['LNS12000000', 'LNS13000000', 'LNS14000000', 'CES0000000001'],"startyear":"2022", "endyear":"2024"})
@@ -14,7 +14,7 @@ def collect_bls_data():
     return json_data
 
 # Iterate over the JSON response and extract data from each inputted series
-@st.cache_data(ttl = "1d") # Caches the data for 24 hours
+@st.cache_data(ttl = "1d") # Caches dataframes_dict for 24 hours
 def process_bls_data(json_data):
     dataframes_dict = {}
     for series in json_data['Results']['series']:
@@ -81,48 +81,48 @@ nonfarm_emp_df = dataframes_dict['CES0000000001']
 
 # Addition of title and header in Streamlit
 st.title('ECON 8320 Fall 2024 Semester Project - Ryan Vilter')
-st.header(':flag-us: _:red[U.S.] Bureau of Labor Statistics :blue[Data]_ :flag-us:')
+st.header(':flag-us: _:red[U.S.] Bureau of Labor Statistics :blue[Data]_ :flag-us:', divider = "red")
 
-# Add data frames and labels to my Streamlit dashboard
-st.subheader("Civilian Employment Data, 2022-2024", divider = "blue")
+# Add data frames and labels to the Streamlit dashboard
+st.subheader("Civilian Employment Data, 2022-2024", divider = "white")
 st.dataframe(civ_emp_df)
 
-st.subheader("Civilian Unemployment Data, 2022-2024", divider = "blue")
+st.subheader("Civilian Unemployment Data, 2022-2024", divider = "white")
 st.dataframe(civ_unemp_df)
 
-st.subheader("Unemployment Rate Data, 2022-2024", divider = "blue")
+st.subheader("Unemployment Rate Data, 2022-2024", divider = "white")
 st.dataframe(unemp_rt_df)
 
-st.subheader("Nonfarm Employment Data, 2022-2024", divider = "blue")
+st.subheader("Nonfarm Employment Data, 2022-2024", divider = "white")
 st.dataframe(nonfarm_emp_df)
 
-# Plot dataframes as bar charts and label them in my Streamlit dashboard
-st.subheader("Civilian Employment, 2022-2024", divider = "red")
-st.bar_chart(civ_emp_df,
+# Plot dataframes as line charts and label them in the Streamlit dashboard
+st.subheader("Civilian Employment, 2022-2024", divider = "blue")
+st.line_chart(civ_emp_df,
              x='month',
              y='value',
              x_label='Civilian Employment per Month',
              y_label='Number of Employed Civilians',
              color='year')
 
-st.subheader("Civilian Unemployment, 2022-2024", divider = "red")
-st.bar_chart(civ_unemp_df,
+st.subheader("Civilian Unemployment, 2022-2024", divider = "blue")
+st.line_chart(civ_unemp_df,
              x='month',
              y='value',
              x_label='Civilian Unemployment per Month',
              y_label='Number of Unemployed Civilians',
              color='year')
 
-st.subheader("Unemployment Rate, 2022-2024", divider = "red")
-st.bar_chart(unemp_rt_df,
+st.subheader("Unemployment Rate, 2022-2024", divider = "blue")
+st.line_chart(unemp_rt_df,
              x='month',
              y='value',
              x_label='Unemployment Rate per Month',
              y_label='Unemployment Rate',
              color='year')
 
-st.subheader("Nonfarm Employment, 2022-2024", divider = "red")
-st.bar_chart(nonfarm_emp_df,
+st.subheader("Nonfarm Employment, 2022-2024", divider = "blue")
+st.line_chart(nonfarm_emp_df,
              x='month',
              y='value',
              x_label='Nonfarm Worker Employment per Month',
