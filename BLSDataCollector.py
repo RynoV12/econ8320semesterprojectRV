@@ -84,16 +84,16 @@ st.title('ECON 8320 Fall 2024 Semester Project - Ryan Vilter')
 st.header(':flag-us: _:red[U.S.] Bureau of Labor Statistics :blue[Data]_ :flag-us:', divider = "red")
 
 # Add data frames and labels to the Streamlit dashboard
-st.subheader("Civilian Employment Data, 2022-2024", divider = "white")
+st.subheader("Civilian Employment Data, 2022-2024", divider = "grey")
 st.dataframe(civ_emp_df)
 
-st.subheader("Civilian Unemployment Data, 2022-2024", divider = "white")
+st.subheader("Civilian Unemployment Data, 2022-2024", divider = "grey")
 st.dataframe(civ_unemp_df)
 
-st.subheader("Unemployment Rate Data, 2022-2024", divider = "white")
+st.subheader("Unemployment Rate Data, 2022-2024", divider = "grey")
 st.dataframe(unemp_rt_df)
 
-st.subheader("Nonfarm Employment Data, 2022-2024", divider = "white")
+st.subheader("Nonfarm Employment Data, 2022-2024", divider = "grey")
 st.dataframe(nonfarm_emp_df)
 
 # Plot dataframes as line charts and label them in the Streamlit dashboard
